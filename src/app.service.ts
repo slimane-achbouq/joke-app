@@ -8,7 +8,7 @@ export class AppService {
 
   async getJoke(): Promise<Joke> {
     const response = await this.httpService.get(
-      'https://v2.jokeapi.dev/joke/Any',
+      'https://v2.jokeapi.dev/joke/Programming',
       {
         headers: {
           accept: 'application/json',
@@ -24,3 +24,6 @@ export class AppService {
     return 'Hello World!';
   }
 }
+
+
+https://stackoverflow.com/questions/18325280/how-can-i-check-if-a-string-has-the-same-characters-python
