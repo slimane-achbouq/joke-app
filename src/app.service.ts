@@ -24,6 +24,3 @@ export class AppService {
     return 'Hello World!';
   }
 }
-
-
-https://stackoverflow.com/questions/18325280/how-can-i-check-if-a-string-has-the-same-characters-python
