@@ -2,11 +2,18 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.0.2
+  heroku: circleci/heroku@1.2.6
 
 workflows:
   build:
     jobs:
       - node/test:
+          matrix:
+            parameters:
+              version:
+                - "16.15"
+                - "14.19"
+                - "12.13"
           filters:
             branches:
               only:
@@ -18,3 +25,6 @@ workflows:
             branches:
               only:
                 - cicleci
+      
+      - heroku/deploy-via-git:
+          app-name: joke-app-circleci-v1
