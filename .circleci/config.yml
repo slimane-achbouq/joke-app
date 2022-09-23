@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  node: cicleci/node@5.0.2
+
 jobs:
   build-test:
     docker:
@@ -7,12 +10,16 @@ jobs:
     
     steps:
       - checkout
-      - run: npm install
+      - node/install:
+          node-version: '16.13'
+      - node/install-packages:
+          cache-path: ~/project/node_modules
+
       - run: npm run build
       - run: npm test
 
 workflows:
-  node-test:
+  build:
     jobs:
       - build-test:
           filters:
